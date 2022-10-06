@@ -1,6 +1,7 @@
 from menu import *
 
-menu()
+#menu()
 
+wdf()
 if __name__ == "__main__":
     pass

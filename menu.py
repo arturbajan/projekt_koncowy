@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 
 
 def menu():
@@ -11,7 +12,6 @@ def menu():
     5 wyświetli podział procentowy na mężczyzn i kobiety.''')
 
     operacja_menu = int(input("Podaj numer operacji:\n"))
-
 
     if operacja_menu == 0:
         sciezki()
@@ -33,8 +33,13 @@ def menu():
 def sciezki():
     pliki = ['/gender_submission.csv', '/test.csv', '/train.csv']
     for idx, pliki in enumerate(pliki, start=0):
-        print(os.getcwd() + pliki,'=>',os.path.isfile(os.getcwd() + pliki))
+        print(os.getcwd() + pliki, '=>', os.path.isfile(os.getcwd() + pliki))
+    wdf()
 
+
+def wdf():
+    df = pd.read_csv(os.getcwd() + '/train.csv')
+    return df
 
 def kobiety_zywe():
     pass
