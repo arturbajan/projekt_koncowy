@@ -42,8 +42,7 @@ def wdf():
     return df
 
 def kobiety_zywe():
-    pass
-
+    print(wdf['Sex'].sum())
 
 def mezczyzni_zywi():
     pass

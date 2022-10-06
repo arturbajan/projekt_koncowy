@@ -1,7 +1,8 @@
 from menu import *
 
-#menu()
+menu()
+#print(wdf().head())
 
-wdf()
+
 if __name__ == "__main__":
     pass
