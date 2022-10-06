@@ -33,7 +33,7 @@ def menu():
 def sciezki():
     pliki = ['/gender_submission.csv', '/test.csv', '/train.csv']
     for idx, pliki in enumerate(pliki, start=0):
-        print(os.getcwd() + pliki, os.path.isfile(os.getcwd() + pliki))
+        print(os.getcwd() + pliki,'=>',os.path.isfile(os.getcwd() + pliki))
 
 
 def kobiety_zywe():
