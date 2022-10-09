@@ -5,7 +5,7 @@ import pandas as pd
 def menu():
     print('''
     0. test potrzebnych plików
-    1. sprawdzi ile kobiet z danych przeżyło katastrofe
+    1. sprawdz ile kobiet z danych przeżyło katastrofe
     2. sprawdzi ilu mężczyzn z danych przeżyło katastrofę
     3. policzy jaki procent osób ma uzupełnione dane o wieku
     4. wyświetli średnią wieku pasażerów, maksymalny wiek i minimalny wiek
@@ -15,16 +15,19 @@ def menu():
 
     if operacja_menu == 0:
         sciezki()
+        menu()
     elif operacja_menu == 1:
-        pass
+        oblicz()
+        kobiety_zywe()
+
     elif operacja_menu == 2:
-        pass
+        oblicz()
     elif operacja_menu == 3:
-        pass
+        oblicz()
     elif operacja_menu == 4:
-        pass
+        oblicz()
     elif operacja_menu == 5:
-        pass
+        oblicz()
     else:
         print(f"Nie ma takiej operacji na: {operacja_menu}")
         menu()
@@ -35,14 +38,25 @@ def sciezki():
     for idx, pliki in enumerate(pliki, start=0):
         print(os.getcwd() + pliki, '=>', os.path.isfile(os.getcwd() + pliki))
     wdf()
-
+def oblicz():
+    #pliki = ['/gender_submission.csv', '/test.csv', '/train.csv']
+    #for idx, pliki in enumerate(pliki, start=0):
+     #   print(os.getcwd() + pliki, '=>', os.path.isfile(os.getcwd() + pliki))
+    wdf()
 
 def wdf():
     df = pd.read_csv(os.getcwd() + '/train.csv')
     return df
 
+
+analiza = wdf()
+
+
 def kobiety_zywe():
-    print(wdf['Sex'].sum())
+    kz = analiza[(analiza.Sex == 'female') & (analiza.Survived == 1)]
+    sumak = kz['Survived'].sum()
+    print(f'sprawdz ile kobiet z danych przeżyło katastrofe {sumak}')
+
 
 def mezczyzni_zywi():
     pass
