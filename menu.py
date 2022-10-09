@@ -6,7 +6,7 @@ def menu():
     print('''
     0. test potrzebnych plików
     1. sprawdz ile kobiet z danych przeżyło katastrofe
-    2. sprawdzi ilu mężczyzn z danych przeżyło katastrofę
+    2. sprawdz ilu mężczyzn z danych przeżyło katastrofę
     3. policzy jaki procent osób ma uzupełnione dane o wieku
     4. wyświetli średnią wieku pasażerów, maksymalny wiek i minimalny wiek
     5 wyświetli podział procentowy na mężczyzn i kobiety.''')
@@ -22,6 +22,7 @@ def menu():
 
     elif operacja_menu == 2:
         oblicz()
+        mezczyzni_zywi()
     elif operacja_menu == 3:
         oblicz()
     elif operacja_menu == 4:
@@ -39,9 +40,6 @@ def sciezki():
         print(os.getcwd() + pliki, '=>', os.path.isfile(os.getcwd() + pliki))
     wdf()
 def oblicz():
-    #pliki = ['/gender_submission.csv', '/test.csv', '/train.csv']
-    #for idx, pliki in enumerate(pliki, start=0):
-     #   print(os.getcwd() + pliki, '=>', os.path.isfile(os.getcwd() + pliki))
     wdf()
 
 def wdf():
@@ -59,4 +57,6 @@ def kobiety_zywe():
 
 
 def mezczyzni_zywi():
-    pass
+    mz = analiza[(analiza.Sex == 'male') & (analiza.Survived == 1)]
+    sumam = mz['Survived'].sum()
+    print(f'sprawdz ilu mężczyzn z danych przeżyło katastrofę {sumam}')
