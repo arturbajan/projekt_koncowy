@@ -23,6 +23,7 @@ def menu():
     elif operacja_menu == 2:
         oblicz()
         mezczyzni_zywi()
+
     elif operacja_menu == 3:
         oblicz()
     elif operacja_menu == 4:
@@ -41,6 +42,7 @@ def sciezki():
     wdf()
 def oblicz():
     wdf()
+
 
 def wdf():
     df = pd.read_csv(os.getcwd() + '/train.csv')
