@@ -10,7 +10,7 @@ def menu():
     2. sprawdz ilu mężczyzn z danych przeżyło katastrofę
     3. policzy jaki procent osób ma uzupełnione dane o wieku
     4. wyświetli średnią wieku pasażerów, maksymalny wiek i minimalny wiek
-    5 wyświetli podział procentowy na mężczyzn i kobiety.''')
+    5. wyświetli podział procentowy na mężczyzn i kobiety.''')
 
     operacja_menu = int(input("Podaj numer operacji:\n"))
 
@@ -31,6 +31,7 @@ def menu():
 
     elif operacja_menu == 4:
         oblicz()
+        srednia_wieku()
 
     elif operacja_menu == 5:
         oblicz()
@@ -77,3 +78,9 @@ def wiek_uzupelniony():
     wsz = analiza['PassengerId'].count()
     pp =  round((snpuste/wsz)*100,2)
     print(f"Wszycy pasażerowie {wsz}  uzupełnione dane  {snpuste}  procent {pp}% ")
+
+def srednia_wieku():
+    sr = analiza['Age'].avg()
+    wmin = analiza['Age'].min()
+    wmax = analiza['Age'].max()
+    print(f"Srednia wieku{sr}\nWiek minimialny{wmin}\nWiek maksymalny {wmax}")
