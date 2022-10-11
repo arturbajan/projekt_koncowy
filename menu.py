@@ -35,6 +35,7 @@ def menu():
 
     elif operacja_menu == 5:
         oblicz()
+        pp_kobiet_do_menszczyzn()
 
     else:
         print(f"Nie ma takiej operacji na: {operacja_menu}")
@@ -80,7 +81,12 @@ def wiek_uzupelniony():
     print(f"Wszycy pasażerowie {wsz}  uzupełnione dane  {snpuste}  procent {pp}% ")
 
 def srednia_wieku():
-    sr = analiza['Age'].avg()
+    sr = round(analiza['Age'].mean())
     wmin = analiza['Age'].min()
     wmax = analiza['Age'].max()
-    print(f"Srednia wieku{sr}\nWiek minimialny{wmin}\nWiek maksymalny {wmax}")
+    print(f"Srednia wieku=>{sr}\nWiek minimialny=>{wmin}\nWiek maksymalny=>{wmax}")
+
+def pp_kobiet_do_menszczyzn():
+     kbt = analiza[analiza.Sex == 'female']  #/ analiza['PassengerId'].count()
+     kbt_ = kbt['Sex'].count()
+     print(kbt_)
