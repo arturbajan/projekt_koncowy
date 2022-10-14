@@ -64,13 +64,13 @@ analiza = wdf()
 def kobiety_zywe():
     kz = analiza[(analiza.Sex == 'female') & (analiza.Survived == 1)]
     sumak = kz['Survived'].sum()
-    print(f'sprawdz ile kobiet z danych przeżyło katastrofe {sumak}')
+    print(f'Kobiet z danych przeżyło katastrofe {sumak}')
 
 
 def mezczyzni_zywi():
     mz = analiza[(analiza.Sex == 'male') & (analiza.Survived == 1)]
     sumam = mz['Survived'].sum()
-    print(f'sprawdz ilu mężczyzn z danych przeżyło katastrofę {sumam}')
+    print(f'Mężczyzn z danych przeżyło katastrofę {sumam}')
 
 
 def wiek_uzupelniony():
