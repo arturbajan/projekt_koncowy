@@ -77,8 +77,9 @@ def wiek_uzupelniony():
     npuste = analiza[analiza.Age > 0]
     snpuste = npuste['Age'].count()
     wsz = analiza['PassengerId'].count()
-    pp =  round((snpuste/wsz)*100,2)
+    pp = round((snpuste / wsz) * 100, 2)
     print(f"Wszycy pasażerowie {wsz}  uzupełnione dane  {snpuste}  procent {pp}% ")
+
 
 def srednia_wieku():
     sr = round(analiza['Age'].mean())
@@ -86,7 +87,10 @@ def srednia_wieku():
     wmax = analiza['Age'].max()
     print(f"Srednia wieku=>{sr}\nWiek minimialny=>{wmin}\nWiek maksymalny=>{wmax}")
 
+
 def pp_kobiet_do_menszczyzn():
-     kbt = analiza[analiza.Sex == 'female']  #/ analiza['PassengerId'].count()
-     kbt_ = kbt['Sex'].count()
-     print(kbt_)
+    kbt =  analiza[analiza.Sex == 'female']
+    kbt_ = kbt['Sex'].count()
+    facet = analiza[analiza.Sex != 'female']
+    facet_ = facet['Sex'].count()
+    print(f"podział procentowy na mężczyzn {round(facet_/(kbt_+facet_),4)} i kobiety {round(kbt_/(kbt_+facet_),4)}")
