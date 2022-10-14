@@ -65,13 +65,14 @@ def kobiety_zywe():
     kz = analiza[(analiza.Sex == 'female') & (analiza.Survived == 1)]
     sumak = kz['Survived'].sum()
     print(f'Kobiet z danych przeżyło katastrofe {sumak}')
+    menu()
 
 
 def mezczyzni_zywi():
     mz = analiza[(analiza.Sex == 'male') & (analiza.Survived == 1)]
     sumam = mz['Survived'].sum()
     print(f'Mężczyzn z danych przeżyło katastrofę {sumam}')
-
+    menu()
 
 def wiek_uzupelniony():
     npuste = analiza[analiza.Age > 0]
@@ -79,14 +80,14 @@ def wiek_uzupelniony():
     wsz = analiza['PassengerId'].count()
     pp = round((snpuste / wsz) * 100, 2)
     print(f"Wszycy pasażerowie {wsz}  uzupełnione dane  {snpuste}  procent {pp}% ")
-
+    menu()
 
 def srednia_wieku():
     sr = round(analiza['Age'].mean())
     wmin = analiza['Age'].min()
     wmax = analiza['Age'].max()
     print(f"Srednia wieku=>{sr}\nWiek minimialny=>{wmin}\nWiek maksymalny=>{wmax}")
-
+    menu()
 
 def pp_kobiet_do_menszczyzn():
     kbt =  analiza[analiza.Sex == 'female']
@@ -94,3 +95,4 @@ def pp_kobiet_do_menszczyzn():
     facet = analiza[analiza.Sex != 'female']
     facet_ = facet['Sex'].count()
     print(f"podział procentowy na mężczyzn {round(facet_/(kbt_+facet_),4)} i kobiety {round(kbt_/(kbt_+facet_),4)}")
+    menu()
